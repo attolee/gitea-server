@@ -35,7 +35,7 @@ fi
 
 echo '恢复 Gitea 数据库中...'
 docker exec -u root -it mysql /bin/bash -c "rm -rf /tmp/*"
-unzip $BACKUP_FILE -d ./tmp
+7z x $BACKUP_FILE -o./tmp
 docker cp ./tmp/gitea-db.sql mysql:/tmp/gitea-db.sql
 USER="gitea"
 PASSWORD="gitea"
