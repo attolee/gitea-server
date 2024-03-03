@@ -56,4 +56,4 @@ docker exec -u root -it gitea /bin/bash -c "chown -R git:git /data"
 docker exec -u git -it gitea /bin/bash -c "/usr/local/bin/gitea -c '/data/gitea/conf/app.ini' admin regenerate hooks"
 
 echo '恢复完成，重启 Gitea...'
-docker compose restart
+docker-compose restart
