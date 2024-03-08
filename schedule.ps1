@@ -7,7 +7,7 @@ $scriptPath = (Get-Location).Path
 $scriptName = "backup.ps1"
 
 $trigger = New-ScheduledTaskTrigger -Daily -At 4am
-$action = New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "-File `"$scriptPath\$scriptName`" $BACKUP_DIR"
+$action = New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "-ExecutionPolicy Bypass -File `"$scriptPath\$scriptName`" $BACKUP_DIR"
 $principal = New-ScheduledTaskPrincipal -UserId "$env:USERDOMAIN\$env:USERNAME" -LogonType Interactive
 $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger
 
